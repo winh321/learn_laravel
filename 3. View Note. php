@@ -1,0 +1,46 @@
+call the view
+
+public function index(){
+        $name = "Win Htike";
+        return view("user.index",["name"=> $name]);
+    }
+
+show the parameter data
+<p>The return value is {{ $name}}</p>
+
+view in route
+
+Route::view("/product","product.index",["name" => "The Data"]);
+
+
+another pattern
+
+use Illuminate\Support\Facades\View;
+
+return View::make("user.index",["name"=> $name,"car" => $car]);
+
+//this is user controller php
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
+
+class UserController extends Controller
+{
+    //
+    public function index(){
+        $name = "Ko Win Htike";
+        $car = array(
+            "name" => "BMW",
+            "price" => "200",
+            "color" => "red"
+        );
+       // return view("user.index",["name"=> $name,"car" => $car]);
+       return View::make("user.index",["name"=> $name,"car" => $car]);
+    }
+    public function show($id){
+        return "User is $id";
+    }
+}
