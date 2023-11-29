@@ -1,0 +1,28 @@
+php artisan make:model Blog --migration --controller
+php artisan migrate
+php artisan storage:link
+    'links' => [
+        public_path('storage') => storage_path('app/public'),
+        public_path('images') => storage_path('app/images'),
+    ],
+
+app\providers\AppServiceProvider.php
+
+use Illuminate\Pagination\Paginator;
+    public function boot(): void
+    {
+        //
+        Paginator::useBootstrapFive();
+    }
+
+ <p>Date</p>
+            <strong>{{ Carbon\Carbon::parse($blog->created_at)->format("d/m/Y") }}</strong>
+
+laravel crud
+@push("create")
+    <script>
+        console.log("Create Script")
+    </script>
+@endpush 
+
+@stack("create")
