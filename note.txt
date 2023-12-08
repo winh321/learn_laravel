@@ -1,0 +1,40 @@
+php artisan make:model Blog --migration --controller
+php artisan migrate
+php artisan storage:link
+    'links' => [
+        public_path('storage') => storage_path('app/public'),
+        public_path('images') => storage_path('app/images'),
+    ],
+
+app\providers\AppServiceProvider.php
+
+use Illuminate\Pagination\Paginator;
+    public function boot(): void
+    {
+        //
+        Paginator::useBootstrapFive();
+    }
+
+ <p>Date</p>
+            <strong>{{ Carbon\Carbon::parse($blog->created_at)->format("d/m/Y") }}</strong>
+
+
+php artisan make:seeder ContactSeeder
+php artisan db:seed
+
+php artisan make:controller api/PostController
+
+ php artisan make:model Post -m
+
+php artisan make:resource PostResource
+
+return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'body' => $this->body
+        ];
+
+about api resources
+Laravel Sanctum
+
+php artisan make:mail ContactMail
